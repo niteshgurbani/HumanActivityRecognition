@@ -101,7 +101,7 @@ H = moodel.fit_generator(
     steps_per_epoch=len(trainX) // 32,
     validation_data=valAug.flow(testX, testY),
     validation_steps=len(testX) // 32,
-    epochs=5)
+    epochs=200)
 
 
 predictions = moodel.predict(testX, batch_size=32)
@@ -109,7 +109,7 @@ print(classification_report(testY.argmax(axis=1),
 	predictions.argmax(axis=1), target_names=lb.classes_))
 
 
-N = 5
+N = 200
 plt.style.use("ggplot")
 plt.figure()
 plt.plot(np.arange(0, N), H.history["loss"], label="train_loss")
